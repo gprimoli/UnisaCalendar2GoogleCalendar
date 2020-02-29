@@ -1,6 +1,7 @@
 import java.io.*;
-import Exception.*;
+import java.util.Scanner;
 
+import Exception.*;
 
 public class Main {
     private UnisaExtractor e;
@@ -26,8 +27,10 @@ public class Main {
             }
         }else{
             try{
+                var sc = new Scanner(System.in);
+                System.out.println("Inserisci prima l'anno poi il resto");
                 settings.createNewFile();
-                e = new UnisaExtractor("05121", 2, 2);
+                e = new UnisaExtractor("05121", sc.nextInt(), sc.nextInt());
                 exit = true;
                 ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream((settings)));
                 out.writeObject(e);
